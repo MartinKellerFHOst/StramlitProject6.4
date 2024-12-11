@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import train_test_split
@@ -7,7 +8,7 @@ from api import fetch_exchange_rates  # Import the centralized API logic
 
 def questionnaire():
     # Load the first dataset for machine learning
-    file_path_ml = '/Users/martinkeller/CS/invest4_data_cleaned.csv'
+    file_path_ml = os.path.join(os.path.dirname(__file__), 'invest4_data_cleaned.csv')
     df_ml = pd.read_csv(file_path_ml, delimiter=',')
 
     # Data preprocessing for machine learning
