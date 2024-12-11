@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import os 
 
 # Configure the Streamlit app page
 st.set_page_config(
@@ -30,7 +31,7 @@ if 'watches_data' not in st.session_state:
 
 # Function to load CSV data containing watch information
 def load_csv_data():
-    file_path_watchdata = 'watchdata5.csv'  # Path to the CSV file 
+    file_path_watchdata = os.path.join(os.path.dirname(__file__), 'CSV, 'watchdata5.csv'  # Path to the CSV file 
     try:
         # Read the CSV file and store it in the session state
         st.session_state['watches_data'] = pd.read_csv(file_path_watchdata, quotechar='"', delimiter=',')
